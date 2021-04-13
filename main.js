@@ -28,16 +28,38 @@ let jmena = [
 ];
 
 let tazenaJmena = [];
-
+let vyherniListina = document.querySelector("#vyherka")
 function tahnoutJmeno() {
     if (jmena.length === 0) {
         return;
     }
+
     // Generujeme náhodný index
+    let vyherniIndex = Math.floor(Math.random() * jmena.length)
+    
     // Získáme výherní jméno na patřičném indexu
+    let vyherniJmeno = jmena[vyherniIndex]
+  
+    vyherniListina.innerHTML = vyherniJmeno
     // Vyřadíme vylosované jméno z osudí
     // Výherní jméno si uložíme do pole k ostatním výherním
 
+  }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     // // Generujeme náhodný index
     // let vyherniIndex = Math.floor(random() * jmena.length);
     // console.log(vyherniIndex);
@@ -51,8 +73,8 @@ function tahnoutJmeno() {
     // tazenaJmena.push(vyherniJmeno);
 
 
-    let vyherce = document.querySelector('#vyherka');
-    vyherce.innerHTML = vyherniJmeno;
+    // let vyherce = document.querySelector('#vyherka');
+    // vyherce.innerHTML = vyherniJmeno;
 
-    let seznamJmen = document.querySelector('#seznam');
-    seznamJmen.innerHTML = tazenaJmena;
+    // let seznamJmen = document.querySelector('#seznam');
+    // seznamJmen.innerHTML = tazenaJmena;
