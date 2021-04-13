@@ -28,7 +28,7 @@ let jmena = [
 ];
 
 let tazenaJmena = [];
-let vyherniListina = document.querySelector("#vyherka")
+
 function tahnoutJmeno() {
     if (jmena.length === 0) {
         return;
@@ -39,14 +39,22 @@ function tahnoutJmeno() {
     
     // Získáme výherní jméno na patřičném indexu
     let vyherniJmeno = jmena[vyherniIndex]
-  
+    let vyherniListina = document.querySelector("#vyherka")
     vyherniListina.innerHTML = vyherniJmeno
-    // Vyřadíme vylosované jméno z osudí
-    // Výherní jméno si uložíme do pole k ostatním výherním
 
+    // Vyřadíme vylosované jméno z osudí
+    
+    jmena.splice(vyherniIndex, 1)
+
+    // Výherní jméno si uložíme do pole k ostatním výherním
+    let seznamVyvolanych = document.querySelector("#seznam")
+    tazenaJmena = tazenaJmena + vyherniJmeno + ", "
+      // tazenaJmena.push(vyherniJmeno);
+    seznamVyvolanych.innerHTML = tazenaJmena
+    
   }
    
-   
+  
    
    
    
