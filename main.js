@@ -28,7 +28,9 @@ let jmena = [
 ];
 
 let tazenaJmena = [];
-
+let seznamVyvolanych = document.querySelector("#seznam")
+let vyherniListina = document.querySelector("#vyherka")
+let pocitadlo = document.querySelector('#counter')
 function tahnoutJmeno() {
     if (jmena.length === 0) {
         return;
@@ -39,7 +41,7 @@ function tahnoutJmeno() {
     
     // Získáme výherní jméno na patřičném indexu
     let vyherniJmeno = jmena[vyherniIndex]
-    let vyherniListina = document.querySelector("#vyherka")
+    
     vyherniListina.innerHTML = vyherniJmeno
 
     // Vyřadíme vylosované jméno z osudí
@@ -47,42 +49,18 @@ function tahnoutJmeno() {
     jmena.splice(vyherniIndex, 1)
 
     // Výherní jméno si uložíme do pole k ostatním výherním
-    let seznamVyvolanych = document.querySelector("#seznam")
-    tazenaJmena = tazenaJmena + vyherniJmeno + ", "
-      // tazenaJmena.push(vyherniJmeno);
-    seznamVyvolanych.innerHTML = tazenaJmena
     
+    // tazenaJmena = tazenaJmena + vyherniJmeno
+    tazenaJmena.unshift(vyherniJmeno);
+    seznamVyvolanych.innerHTML = tazenaJmena
+
+    // pridat pocitadlo tazenych jmen
+    pocitadlo.innerHTML = tazenaJmena.length;
   }
-   
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    // // Generujeme náhodný index
-    // let vyherniIndex = Math.floor(random() * jmena.length);
-    // console.log(vyherniIndex);
-    // // Získáme výherní jméno na patřičném indexu
-    // let vyherniJmeno = jmena[vyherniIndex];
-    // console.log(vyherniJmeno);
-    // // Vyřadíme vylosované jméno z osudí
-    // jmena.splice(vyherniIndex, 1)
-    // console.log(jmena.length);
-    // // Výherní jméno si uložíme do pole k ostatním výherním
-    // tazenaJmena.push(vyherniJmeno);
-
-
-    // let vyherce = document.querySelector('#vyherka');
-    // vyherce.innerHTML = vyherniJmeno;
-
-    // let seznamJmen = document.querySelector('#seznam');
-    // seznamJmen.innerHTML = tazenaJmena;
+  // resetovani vyvolavace
+  function resetuj() {
+    tazenaJmena.splice(0,tazenaJmena.length);
+    vyherniListina.innerHTML = [];
+    seznamVyvolanych.innerHTML = [];
+    pocitadlo.innerHTML = 0;
+  }
